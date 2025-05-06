@@ -1,0 +1,149 @@
+{
+    "info": {
+      "_postman_id": "a2d4d1fa-1b8f-4e2d-90ad-0ffccfd3d9b6",
+      "name": "NodeJS API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register User",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"john123\",\n  \"email\": \"john123@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"instructor\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/api/auth/register",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "auth", "register"]
+          }
+        }
+      },
+      {
+        "name": "Login User",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"email\": \"john123@example.com\",\n  \"password\": \"123456\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/api/auth/login",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "auth", "login"]
+          }
+        }
+      },
+      {
+        "name": "Create Course",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{token}}",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"title\": \"Khóa NodeJS Cơ Bản\",\n  \"description\": \"Học NodeJS cho người mới\",\n  \"instructor\": \"{{instructorId}}\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/api/courses/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "courses"]
+          }
+        }
+      },
+      {
+        "name": "Get Courses",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/courses/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "courses"]
+          }
+        }
+      },
+      {
+        "name": "Create Lesson",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{token}}",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"title\": \"Bài học đầu tiên\",\n  \"content\": \"Nội dung bài học\",\n  \"course\": \"{{courseId}}\",\n  \"order\": 1\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/api/lessons/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "lessons"]
+          }
+        }
+      },
+      {
+        "name": "Get Lessons by Course",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/lessons/course/{{courseId}}",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "lessons", "course", "{{courseId}}"]
+          }
+        }
+      }
+    ],
+    "variable": [
+      { "key": "token", "value": "" },
+      { "key": "instructorId", "value": "" },
+      { "key": "courseId", "value": "" }
+    ]
+  }
+  
