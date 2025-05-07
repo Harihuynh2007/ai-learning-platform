@@ -11,7 +11,7 @@ A personalized learning platform powered by AI, developed as part of the graduat
 ## 🛠️ Tech Stack
 ### Frontend
 - React.js (Web)
-- React Native (Mobile, optional)
+
 
 ### Backend
 - Node.js with Express.js (or Python with FastAPI)
